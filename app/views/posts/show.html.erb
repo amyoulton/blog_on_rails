@@ -1,0 +1,29 @@
+
+<div class="page-title"></div>
+<div class='shadow-sm p-3 mb-3 bg-white rounded overflow-wrap'>
+  <h1>
+      <%= @post.title %>
+  </h1>
+   <h5>
+        Created <%= time_ago_in_words(@post.created_at) %> ago
+    </h5>
+  <p class='shadow-none mb-3 rounded'><%= @post.body %></p>
+  <div class="edit-delete-buttons">
+    <%= link_to(
+      "Edit",
+      edit_post_path(@post),
+      class: 'btn btn-success'
+    )
+    %>
+    <%= link_to(
+      "Delete",
+      post_path(@post),
+      method: :delete,
+      class: 'btn btn-danger',
+      data: { confirm: 'are you sure?' }
+    )
+    %>
+  </div>
+ 
+</div>
+

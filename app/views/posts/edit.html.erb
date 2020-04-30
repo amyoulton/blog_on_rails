@@ -1,0 +1,21 @@
+<div class="page-title"><h1>New Post Page</h1></div>
+<div class="card mb-4">
+<div class="card-body">
+<% if @post.errors.present? %>
+  <p>
+    <%= @post.errors.full_messages.join(', ')%>
+  </p>
+<% end %>
+<%= form_with model: @post, local:true do |f| %>
+  <div class='form-group'>
+    <%= f.label :title %>
+    <%= f.text_field(:title, class: 'form-control')%>
+  </div>
+  <div class='form-group'>
+    <%= f.label :body %>
+    <%= f.text_area(:body, class: 'form-control', cols: 50, rows: 5)%>
+  </div>
+  <%= f.submit "Edit", class: 'btn' %>
+<% end %>
+</div>
+</div>
