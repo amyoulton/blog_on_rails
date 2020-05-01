@@ -1,0 +1,49 @@
+.nav-item {
+  margin-right: 1em;
+}
+
+.card {
+  min-width: 30%;
+  margin: 2em;
+}
+
+.card-body {
+  max-height: 200px;
+}
+
+.card-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.main-body {
+  margin: 0em 1em 1em 1em;
+}
+
+.show-post {
+  margin: 2em;
+}
+
+.post-text {
+  font-size: 18px;
+}
+
+.post-created {
+  font-size: 14px;
+}
+
+.list-group-item {
+  border: none;
+  padding: 0;
+}
+
+.comment-text {
+  font-size: 18px;
+  margin: 0;
+  line-height: 1;
+}
+
+.new-form {
+  margin: 1.5em;
+}

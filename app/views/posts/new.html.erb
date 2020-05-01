@@ -1,6 +1,4 @@
-<div class="page-title"><h1>New Post Page</h1></div>
-<div class="card mb-4">
-<div class="card-body">
+<div class="new-form">
 <% if @post.errors.present? %>
   <p>
     <%= @post.errors.full_messages.join(', ')%>
@@ -15,7 +13,6 @@
     <%= f.label :body %>
     <%= f.text_area(:body, class: 'form-control', cols: 50, rows: 5)%>
   </div>
-  <%= f.submit "Create", class: 'btn' %>
+  <%= f.submit "Create Post", class: 'btn btn-outline-primary' %>
 <% end %>
-</div>
 </div>

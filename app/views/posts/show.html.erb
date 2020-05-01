@@ -1,29 +1,73 @@
-
-<div class="page-title"></div>
-<div class='shadow-sm p-3 mb-3 bg-white rounded overflow-wrap'>
+<div class='show-post'>
   <h1>
       <%= @post.title %>
   </h1>
    <h5>
-        Created <%= time_ago_in_words(@post.created_at) %> ago
+        
     </h5>
-  <p class='shadow-none mb-3 rounded'><%= @post.body %></p>
-  <div class="edit-delete-buttons">
+  <p class='post-text'><%= @post.body %></p>
+  <p class='post-created'>Created <%= time_ago_in_words(@post.created_at) %> ago</p>
+  
+  <div>
     <%= link_to(
       "Edit",
       edit_post_path(@post),
-      class: 'btn btn-success'
+      class: 'btn btn-outline-primary'
     )
     %>
     <%= link_to(
       "Delete",
       post_path(@post),
       method: :delete,
-      class: 'btn btn-danger',
+      class: 'btn btn-outline-primary',
       data: { confirm: 'are you sure?' }
     )
     %>
   </div>
- 
+</div>
+
+<div class='show-post'>
+<%=  form_with(model: [@post, @comment], local: true) do |f| %>
+  <% if @comment.errors.full_messages.each do |msg| %>
+    <ul>
+      <li class="text-danger"><%= msg %></li>
+    </ul>
+    <% end %>
+  <% end %>
+  <div class="form-group">
+  <h3>Comment</h3>
+    <%= f.text_area(
+      :body,
+      cols: 50,
+      rows: 5,
+      placeholder: "What's on your mind?",
+      class: "form-control"
+    ) %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-outline-primary" %>
+<% end %>
+</div>
+
+<div class='show-post'>
+<ul class="list-group">
+  <% @comments.each do |comment| %>
+    <li class="list-group-item">
+      <p class="comment-text">
+        <%= comment.body %><br /><br>
+        <p class="post-created">
+        Commented <%= time_ago_in_words(comment.created_at) %> •
+          <%= link_to(
+            "Delete",
+            post_comment_path(@post, comment),
+            method: :delete, 
+            data: {
+              confirm: "Are you sure?"
+            }
+          ) %>
+        </p>
+      </p>
+    </li>
+  <% end %>
+</ul>
 </div>
 

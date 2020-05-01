@@ -1,18 +1,15 @@
-<div class="page-title"><h1>Post List</h1></div>
-<div class="shadow-sm p-3 mb-5 bg-white rounded">
-<div class="p-3 mb-5 bg-white rounded" >
+<div class="main-body">
+<div class="card-deck">
 
-  <div>
-    <% @posts.each do |post| %>
-    <%# if you pass a instance to link_to it will create the href='/questions/:id' %>
-      <%= link_to post do %>
-        <li class='list-group-item mb-3 bg-white rounded'>
-          <h3><%= post.title %></h3>
-      <% end %>
-          <p><%= post.body%></p>
-        </li>
+     <% @posts.each do |post| %>
+         <div class="card">
+            <div class="card-body" >
+                <%= link_to post do %>
+                <h3 class="card-title"><%= post.title %></h3>
+                <% end %>
+                <p class="card-text"><%= post.body%></p>
+            </div>
+         </div>
     <% end %>
-  </div>
-</div>
 </div>
 </div>
