@@ -1,0 +1,19 @@
+
+
+<div class='shadow-sm p-3 mb-5 bg-white rounded'>
+  <h1>Update User Info</h1>
+  <%= form_with model: @user, local:true do |f| %>
+    <div class='form-group'>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class='form-group'>
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+    </div>
+    <%= f.submit "Update", class: 'btn btn-success'%>
+  <% end %> <br>
+<h4><%= link_to "Change Password", user_password_path(current_user.id), class: 'btn btn-danger'%></h4>
+</div>
+
+

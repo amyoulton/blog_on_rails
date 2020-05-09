@@ -1,5 +1,7 @@
 .nav-item {
   margin-right: 1em;
+  font-size: 18px;
+  margin-top: 3px;
 }
 
 .card {
@@ -8,7 +10,7 @@
 }
 
 .card-body {
-  max-height: 200px;
+  height: 200px;
 }
 
 .card-text {
@@ -17,6 +19,9 @@
   text-overflow: ellipsis;
 }
 
+.card-title {
+  font-size: 22px;
+}
 .main-body {
   margin: 0em 1em 1em 1em;
 }
@@ -46,4 +51,8 @@
 
 .new-form {
   margin: 1.5em;
+}
+
+.user-link > a {
+  color: green;
 }

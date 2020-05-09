@@ -6,24 +6,26 @@
         
     </h5>
   <p class='post-text'><%= @post.body %></p>
-  <p class='post-created'>Created <%= time_ago_in_words(@post.created_at) %> ago</p>
+  <p class='post-created'>Created <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.name %></p>
   
+ <% if can? :crud, @post %>
   <div>
     <%= link_to(
       "Edit",
       edit_post_path(@post),
-      class: 'btn btn-outline-primary'
+      class: 'btn btn-info'
     )
     %>
     <%= link_to(
       "Delete",
       post_path(@post),
       method: :delete,
-      class: 'btn btn-outline-primary',
+      class: 'btn btn-danger',
       data: { confirm: 'are you sure?' }
     )
     %>
   </div>
+  <% end %>
 </div>
 
 <div class='show-post'>
@@ -55,7 +57,9 @@
       <p class="comment-text">
         <%= comment.body %><br /><br>
         <p class="post-created">
-        Commented <%= time_ago_in_words(comment.created_at) %> •
+        Commented <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.name %> 
+         <% if can? :crud, comment %>
+         •
           <%= link_to(
             "Delete",
             post_comment_path(@post, comment),
@@ -64,6 +68,7 @@
               confirm: "Are you sure?"
             }
           ) %>
+           <% end %>
         </p>
       </p>
     </li>
