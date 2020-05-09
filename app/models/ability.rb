@@ -20,6 +20,10 @@ class Ability
     
     can(:crud, Comment) do |comment|
       comment.user == user 
-    end 
+    end
+
+    can(:crud, User) do |user|
+      user == user
+    end
   end
 end
